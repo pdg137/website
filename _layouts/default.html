@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% assign relative-baseurl = "" %}
+{% assign canon = page.url | append: "page.html" | split: "/" %}
+{% for item in canon offset:2 %}
+{% assign relative-baseurl = relative-baseurl | append:"../" %}
+{% endfor %}
+
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+<div class="row">
+<div class="col-9" style="padding: 10px;">
+<div class="page-header">
+<h1>{{ page.title }}</h1>
+</div>
+{{ content }}
+</div>
+<div class="col-3" style="padding: 10px; background-color: #eee;">
+{% capture sidebar %}{% include sidebar.md %}{% endcapture %}
+{{ sidebar | markdownify }}
+</div>
+</div>
+
+
+</body>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</html>
