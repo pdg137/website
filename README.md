@@ -1,4 +1,4 @@
-Website
+Website - Template to make a based static-website
 =======
 
 This repository is a template for making a
